@@ -1,13 +1,18 @@
+import "reflect-metadata"
+import { DataSource } from "typeorm"
+import { Libro } from "./entities/libro"
+import { Author } from "./entities/author"
+
 export const AppDataSource = new DataSource({
-    type: "postgres",
+    type: "mysql",
     host: "localhost",
-    port: 5432,
-    username: "test",
-    password: "test",
-    database: "test",
+    port: 3306,
+    username: "root",
+    password: "password",
+    database: "library",
     synchronize: true,
     logging: true,
-    entities: [],
+    entities: [Libro, Author],
     subscribers: [],
     migrations: [],
 })

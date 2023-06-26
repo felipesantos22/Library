@@ -1,8 +1,11 @@
-import "reflect-metadata"
-import { AppDataSource } from "./data-source"
+import express from 'express';
+import libroRouter from './router/libro';
 
-AppDataSource.initialize()
-.then(() => {
-    // here you can start to work with your database
-})
-.catch((error) => console.log(error))
+const app = express();
+
+app.use(express.json());
+app.use(libroRouter);
+
+
+export default app;
+
